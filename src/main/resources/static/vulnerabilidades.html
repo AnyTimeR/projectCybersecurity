@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATM - Home</title>
+
+    <!-- MDB CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.min.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <style>
+        .navbar {
+            margin-bottom: 20px; /* Espaço entre a navbar e a tabela */
+        }
+        .navbar-brand img {
+            max-width: 120px; /* Ajusta o tamanho máximo da imagem do logo */
+        }
+        .navbar-nav .nav-link {
+            color: black; /* Cor da fonte dos itens da navbar */
+        }
+        .navbar-nav .nav-link:hover {
+            color: #2a4a9a; /* Cor da fonte dos itens da navbar ao passar o mouse */
+        }
+        .table {
+            font-size: 1rem; /* Tamanho da fonte da tabela */
+            background-color: white; /* Cor de fundo da tabela */
+            color: black; /* Cor da fonte da tabela */
+        }
+        .table thead th {
+            background-color: #2a4a9a; /* Cor de fundo do cabeçalho da tabela */
+            color: white; /* Cor da fonte do cabeçalho */
+        }
+        .table tbody tr {
+            border-bottom: 1px solid #2a4a9a; /* Borda inferior para cada linha da tabela */
+        }
+        .table tbody td {
+            color: black; /* Cor da fonte das células */
+        }
+        @media (max-width: 992px) {
+            .navbar-nav {
+                text-align: center;
+                margin-top: 10px; /* Ajusta o espaçamento dos itens da navbar */
+            }
+            .navbar-nav .nav-item {
+                margin: 5px 0;
+            }
+            .navbar-brand img {
+                max-width: 100px; /* Reduz o tamanho máximo da imagem do logo */
+            }
+        }
+        @media (max-width: 768px) {
+            .navbar-brand img {
+                max-width: 80px; /* Reduz ainda mais o tamanho da imagem do logo */
+            }
+            .table {
+                font-size: 0.9rem; /* Ajusta o tamanho da fonte da tabela em telas menores */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+            <!-- Toggle button -->
+            <button
+                data-mdb-collapse-init
+                class="navbar-toggler"
+                type="button"
+                data-mdb-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <i class="fas fa-bars"></i>
+            </button>
+    
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Navbar brand -->
+                <a class="navbar-brand mt-2 mt-lg-0" href="index.html">
+                    <img src="./assets/ATM.png" alt="ATM Logo" loading="lazy" />
+                </a>
+                <!-- Left links -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Vulnerabilidades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ataques.html">Tipos de Ataques</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="dicas.html">Dicas de Proteção</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
+    
+    <div class="container">
+        <!-- Table filter input -->
+        <div class="mb-3">
+            <input class="form-control" id="tableFilter" type="text" placeholder="Filtrar tabela...">
+        </div>
+        
+        <!-- Table -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Título</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Data de descoberta</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>SQL Injection</td>
+                    <td>Crítica</td>
+                    <td>2024-07-15</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Cross-Site Scripting (XSS)</td>
+                    <td>Alta</td>
+                    <td>2024-08-01</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Autenticação Inadequada</td>
+                    <td>Média</td>
+                    <td>2024-08-07</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- MDB JS -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.umd.min.js"></script>
+    <script>
+        // JavaScript para filtro da tabela
+        document.getElementById('tableFilter').addEventListener('input', function(e) {
+            const filter = e.target.value.toLowerCase();
+            const rows = document.querySelectorAll('table tbody tr');
+            rows.forEach(row => {
+                const cells = row.querySelectorAll('td');
+                let match = false;
+                cells.forEach(cell => {
+                    if (cell.textContent.toLowerCase().includes(filter)) {
+                        match = true;
+                    }
+                });
+                row.style.display = match ? '' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>

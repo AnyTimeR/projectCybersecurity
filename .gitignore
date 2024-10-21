@@ -1,0 +1,40 @@
+# Diretórios de build
+target/
+out/
+build/
+
+# Arquivos do IDE
+.idea/
+*.iml
+*.class
+
+# Dependências do Maven
+.mvn/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+dependency-reduced-pom.xml
+
+# Arquivos de log
+*.log
+
+# Arquivos temporários do sistema
+*.tmp
+*.temp
+*.swp
+
+# Configurações específicas do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos de configuração do banco de dados
+*.db
+*.sqlite
+
+# Outros arquivos de configuração
+*.properties
+*.yml
+
+# Variáveis de ambiente
+.env
